@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RoleBasedMenuApp.Data.NavigationMenu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentNavigationMenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControllerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsExternal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExternalUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentNavigationMenu.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControllerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsExternal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExternalUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

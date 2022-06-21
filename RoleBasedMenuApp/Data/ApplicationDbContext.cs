@@ -17,6 +17,8 @@ namespace RoleBasedMenuApp.Data
 
 		public DbSet<NavigationMenu> NavigationMenu { get; set; }
 
+		public DbSet<Product> Products { get; set; }
+
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			builder.Entity<RoleMenuPermission>()
